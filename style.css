@@ -47,6 +47,12 @@ p {
     min-height: 100vh;
 }
 
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2em;
+    }
+
 .section-bio {
     -webkit-box-pack: justify;
     justify-content: space-between;
@@ -97,7 +103,7 @@ img {
 }
 
 .avatar {
-    width: 300px;
+    width: 350px;
     border-radius: 90px;
 }
 
@@ -143,7 +149,6 @@ dd, dl, h1, p {
 .bio {
     font-size: 20px;
     padding-bottom: 20px;
-    padding-top: 20px;
     font-weight: 100;
     margin-bottom: -.45em;
     max-width: 700px;
@@ -235,7 +240,7 @@ html {
 
 @media (max-width: 600px) {
             .bio {
-                padding-top: 15vw;
+                padding-top: 5vw;
                 font-size: 18px;;
             }
           }
