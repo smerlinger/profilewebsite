@@ -46,6 +46,19 @@ p {
     box-sizing: border-box;
     min-height: 100vh;
 }
+.gallery-image {
+    width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Match the styling */
+    margin: 10px; /* Space between images */
+    object-fit: cover; /* Ensure images cover the area */
+}
+
+@media (min-width: 768px) {
+    .gallery-image {
+        width: calc(33.33% - 20px); /* Three images per row on desktop */
+    }
+}
 
 .section {
     display: flex;
