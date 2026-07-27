@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+
+const vision = [
+  'Build a portfolio of community-focused brands centered around technology, nature & health.',
+  'Build a product studio focused on creating simple, value-based micro-SaaS.',
+  'Document & have fun.',
+];
+---
+
+<Base title="Vision — Shaun Smerling" description="What I'm building toward.">
+  <h1>The Vision</h1>
+  <div class="entry-list" style="margin-top:2rem;">
+    {vision.map((item, i) => (
+      <div class="entry">
+        <span class="entry-title"><span class="tag" style="margin-left:0;margin-right:0.6rem;">{i + 1}</span>{item}</span>
+      </div>
+    ))}
+  </div>
+</Base>

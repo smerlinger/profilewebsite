@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Shaun's bookshelf. Add a book: drop a { title, author } object in the list.
+const books = [
+  { title: 'Shoe Dog', author: 'Phil Knight' },
+  { title: 'What I Talk About When I Talk About Running', author: 'Haruki Murakami' },
+  { title: 'Ikigai', author: 'Francesc Miralles' },
+  { title: 'The Lessons of History', author: 'Will & Ariel Durant' },
+  { title: 'The Wealth of Nations', author: 'Adam Smith' },
+  { title: 'As a Man Thinketh', author: 'James Allen' },
+  { title: "Poor Charlie's Almanack", author: 'Charlie Munger' },
+  { title: 'Novelist as a Vocation', author: 'Haruki Murakami' },
+  { title: 'The Kybalion', author: 'Three Initiates' },
+  { title: 'The Wisdom of Life', author: 'Arthur Schopenhauer' },
+  { title: 'Sapiens', author: 'Yuval Noah Harari' },
+  { title: 'The Pragmatic Programmer', author: 'Andrew Hunt & David Thomas' },
+  { title: 'Zero to One', author: 'Peter Thiel' },
+  { title: 'Rework', author: 'DHH & Jason Fried' },
+  { title: 'Mastery', author: 'Robert Greene' },
+  { title: '1Q84', author: 'Haruki Murakami' },
+  { title: 'The Untethered Soul', author: 'Michael Singer' },
+  { title: 'The Art of Solitude', author: 'Stephen Batchelor' },
+  { title: 'Managing Oneself', author: 'Peter Drucker' },
+];
+---
+
+<Base title="Bookshelf — Shaun Smerling" description="Books Shaun has read and recommends.">
+  <h1>Bookshelf</h1>
+  <p class="muted">Books that shaped how I think.</p>
+
+  <div class="entry-list" style="margin-top:2rem;">
+    {books.map((book) => (
+      <div class="entry">
+        <span class="entry-title">{book.title}</span>
+        <p class="entry-desc">{book.author}</p>
+      </div>
+    ))}
+  </div>
+</Base>

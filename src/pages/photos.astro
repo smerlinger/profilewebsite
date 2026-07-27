@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Photos: drop image files into /public/photos, then list them here.
+// e.g. { src: '/photos/kyoto.jpg', alt: 'Kyoto, spring' }
+const photos: { src: string; alt: string }[] = [];
+---
+
+<Base title="Photos — Shaun Smerling" description="Visual notes from the journey.">
+  <h1>Photos</h1>
+  <p class="muted">Visual notes from the journey.</p>
+
+  {photos.length === 0 ? (
+    <p class="muted" style="margin-top:2rem;">Coming soon.</p>
+  ) : (
+    <div class="gallery" style="margin-top:2rem;">
+      {photos.map((p) => (
+        <img src={p.src} alt={p.alt} loading="lazy" />
+      ))}
+    </div>
+  )}
+</Base>

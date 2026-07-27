@@ -1,0 +1,90 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Shaun Smerling',
+  description = 'Shaun Smerling — building internet companies, writing about entrepreneurship & philosophy, documenting the journey.',
+} = Astro.props;
+
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+
+const nav = [
+  { href: '/writing', label: 'writing' },
+  { href: '/books', label: 'books' },
+  { href: '/vision', label: 'vision' },
+  { href: '/photos', label: 'photos' },
+];
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <!-- Set theme before paint to avoid a flash -->
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="site-header">
+        <a href="/" class="brand">Shaun Smerling</a>
+        <nav class="nav" aria-label="Primary">
+          {nav.map((item) => (
+            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+              {item.label}
+            </a>
+          ))}
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
+            <span aria-hidden="true">◐</span>
+          </button>
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <a href="https://twitter.com/shaunsmerling" target="_blank" rel="noopener">twitter</a>
+        <a href="https://github.com/smerlinger" target="_blank" rel="noopener">github</a>
+        <a href="mailto:shaunsmerling@gmail.com">email</a>
+        <span class="muted">© {new Date().getFullYear()} Shaun Smerling</span>
+      </footer>
+    </div>
+
+    <script is:inline>
+      (function () {
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          var cur = document.documentElement.getAttribute('data-theme');
+          var next = cur === 'light' ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+        });
+      })();
+    </script>
+  </body>
+</html>

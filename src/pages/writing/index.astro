@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+
+<Base title="Writing — Shaun Smerling" description="Essays on entrepreneurship & philosophy.">
+  <h1>Writing</h1>
+  <p class="muted">Essays on entrepreneurship, technology &amp; philosophy.</p>
+
+  {posts.length === 0 ? (
+    <p class="muted">Nothing published yet — soon.</p>
+  ) : (
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li>
+          <a class="post-link" href={`/writing/${post.id}`}>
+            <span class="post-title">{post.data.title}</span>
+            <span class="post-date">{fmt(post.data.date)}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</Base>
