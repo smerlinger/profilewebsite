@@ -2,6 +2,8 @@
 
 Personal site + blog, built with [Astro](https://astro.build). Minimal, text-forward, light/dark.
 
+> **Just want to write a post or add photos?** See [GUIDE.md](GUIDE.md) — plain-English, no code.
+
 ## Writing a new blog post
 
 This is the whole workflow — no HTML, no layout code:
