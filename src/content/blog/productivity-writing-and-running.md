@@ -1,5 +1,5 @@
-title: My New Idea
-date: 2026-07-28
+title: Productivity, Writing, and Running
+date: 2023-12-23
 description: One-line summary (optional, used for previews & SEO).
 draft: false
 ---
