@@ -1,6 +1,7 @@
+---
 title: Productivity, Writing, and Running
 date: 2023-12-23
-description: One-line summary (optional, used for previews & SEO).
+description: What Haruki Murakami's practice of writing and running taught me about focus, discipline, and finding the meditative in the mundane.
 draft: false
 ---
 10 pages a day. 300 pages a month. 1800 pages in 6 months. 3,600 pages a year.
