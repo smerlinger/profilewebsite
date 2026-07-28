@@ -18,11 +18,7 @@ const help = [
 
 <Base>
   <p class="lead">
-    Hi, I'm Shaun. I've built &amp; sold multiple eCommerce brands to 7-figures a year, and I run
-    <a href="https://ecomportal.co" target="_blank" rel="noopener">a job board for the eCommerce industry</a>.
-    I love running, yoga, meditation, technology, artistry, languages, martial arts, &amp; tea.
-    I <a href="/writing">write about entrepreneurship &amp; philosophy</a> and visually share what I learn —
-    following my curiosity and documenting the journey.
+   Live in the future & build what's missing.
   </p>
 
   <p class="section-label">What I'm working on</p>
@@ -30,16 +26,6 @@ const help = [
     {working.map((item) => (
       <div class="entry">
         <span class="entry-title">{item.title}{item.tag && <span class="tag">{item.tag}</span>}</span>
-        <p class="entry-desc">{item.desc}</p>
-      </div>
-    ))}
-  </div>
-
-  <p class="section-label">How I can help</p>
-  <div class="entry-list">
-    {help.map((item) => (
-      <div class="entry">
-        <span class="entry-title">{item.title}</span>
         <p class="entry-desc">{item.desc}</p>
       </div>
     ))}
